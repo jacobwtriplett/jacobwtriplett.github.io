@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Academic Portfolio</title>
+    <title>Jacob Triplett - Academic Portfolio</title>
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --text-color: #333;
-            --background-color: #f9f9f9;
+            --primary-color: #2D2D2D;
+            --secondary-color: #3D3D3D;
+            --text-color: #E6E6E6;
+            --background-color: #1D1D1D;
+            --card-background: #2D2D2D;
+            --link-color: #C65F37;
+            --hover-color: #E6D7F3;
         }
         
         body {
@@ -23,7 +26,7 @@
 
         header {
             background-color: var(--primary-color);
-            color: white;
+            color: var(--text-color);
             text-align: center;
             padding: 2rem 0;
         }
@@ -31,18 +34,25 @@
         nav {
             background-color: var(--secondary-color);
             padding: 1rem;
+            text-align: center;
         }
 
         nav a {
-            color: white;
+            color: var(--text-color);
             text-decoration: none;
             margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--hover-color);
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 2rem;
+            margin-bottom: 60px; /* Space for footer */
         }
 
         .section {
@@ -50,16 +60,25 @@
         }
 
         .project-card {
-            background: white;
+            background: var(--card-background);
             border-radius: 8px;
             padding: 1rem;
             margin-bottom: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
 
         footer {
             background-color: var(--primary-color);
-            color: white;
+            color: var(--text-color);
             text-align: center;
             padding: 1rem;
             position: fixed;
@@ -70,54 +89,69 @@
 </head>
 <body>
     <header>
-        <h1>Your Name</h1>
-        <p>Your Title - Your Institution</p>
+        <h1>Jacob Triplett</h1>
+        <p>Finance PhD Student - The University of North Carolina Kenan-Flagler Business School</p>
     </header>
 
     <nav>
         <a href="#about">About</a>
         <a href="#research">Research</a>
-        <a href="#publications">Publications</a>
-        <a href="#software">Software</a>
+        <a href="#software">Estimation Commands</a>
         <a href="#cv">CV</a>
     </nav>
 
     <div class="container">
         <section id="about" class="section">
             <h2>About Me</h2>
-            <p>Brief introduction about your research interests and academic background.</p>
+            <p>My background is in Empirical Corporate Finance and Econometrics.</p>
         </section>
 
         <section id="research" class="section">
             <h2>Research</h2>
-            <p>Description of your current research projects and interests.</p>
-        </section>
-
-        <section id="publications" class="section">
-            <h2>Publications</h2>
-            <ul>
-                <li>Publication 1</li>
-                <li>Publication 2</li>
-            </ul>
+            <!-- For research papers, I recommend this format: -->
+            <div class="project-card">
+                <p><em>This section will contain your working papers and publications in a format like:</em></p>
+                <p>"Title of Paper" with Author Names (Year)<br>
+                Status: [R&R at Journal Name/Working Paper/Published]<br>
+                [Link to Paper] [Link to Code]</p>
+            </div>
         </section>
 
         <section id="software" class="section">
-            <h2>Software Projects</h2>
+            <h2>Estimation Commands</h2>
             <div class="project-card">
-                <h3>Project Name</h3>
-                <p>Project description</p>
+                <h3>STACKDID</h3>
+                <p>Stacked difference-in-differences regression</p>
+                <a href="#">GitHub Repository</a>
+            </div>
+            <div class="project-card">
+                <h3>GINTREG</h3>
+                <p>Generalized interval regression</p>
+                <a href="#">GitHub Repository</a>
+            </div>
+            <div class="project-card">
+                <h3>GOPROBIT2</h3>
+                <p>Generalized ordered probit regression</p>
                 <a href="#">GitHub Repository</a>
             </div>
         </section>
 
         <section id="cv" class="section">
             <h2>Curriculum Vitae</h2>
-            <p>Download my CV: <a href="path-to-your-cv.pdf">PDF version</a></p>
+            <div class="project-card">
+                <p>For your CV, you have several options:</p>
+                <ul>
+                    <li>Host a PDF directly in your GitHub repository and link to it</li>
+                    <li>Link to a Google Doc set to "Anyone with the link can view"</li>
+                    <li>Use services like Overleaf's PDF sharing</li>
+                </ul>
+                <p>Example link: <a href="#">View CV (PDF)</a></p>
+            </div>
         </section>
     </div>
 
     <footer>
-        <p>Contact: your.email@institution.edu</p>
+        <p>Contact: jacob_triplett@kenan-flagler.unc.edu</p>
     </footer>
 </body>
 </html>
