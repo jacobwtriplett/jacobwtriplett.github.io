@@ -3,157 +3,337 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jacob Triplett - Academic Portfolio</title>
+    <title>Jacob Triplett | Finance PhD Student</title>
     <style>
         :root {
+            --background-color: #F5F1EA;
+            --text-color: #141413;
             --primary-color: #E1DDD6;
             --secondary-color: #EBE7E0;
-            --text-color: #2C1810;
-            --background-color: #F5F1EA;
+            --accent-color: #6B4423;
             --card-background: #FFFFFF;
-            --link-color: #6B4423;
             --hover-color: #8B7355;
+            --header-height: 70px;
+            --footer-height: 60px;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            margin: 0;
-            padding: 0;
             background-color: var(--background-color);
         }
-
+        
+        .page-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Header */
         header {
-            background-color: var(--primary-color);
-            color: var(--text-color);
-            text-align: center;
-            padding: 2rem 0;
+            background-color: var(--background-color);
+            padding: 3rem 0 1rem;
+            position: relative;
         }
-
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header-subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 0.25rem;
+            opacity: 0.9;
+        }
+        
+        /* Navigation */
         nav {
-            background-color: var(--secondary-color);
-            padding: 1rem;
-            text-align: center;
+            background-color: var(--background-color);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--primary-color);
         }
-
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
         nav a {
             color: var(--text-color);
             text-decoration: none;
-            margin: 0 1rem;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--accent-color);
+        }
+        
+        nav a::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Main content */
+        main {
+            padding: 3rem 0;
+        }
+        
+        section {
+            margin-bottom: 4rem;
+        }
+        
+        h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .section-content {
+            margin-top: 2rem;
+        }
+        
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .card {
+            background-color: var(--card-background);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-color);
+        }
+        
+        .card p {
+            margin-bottom: 1.25rem;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        
+        .card-link {
+            display: inline-block;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
             transition: color 0.3s ease;
         }
-
-        nav a:hover {
+        
+        .card-link:hover {
             color: var(--hover-color);
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-            margin-bottom: 60px; /* Space for footer */
-        }
-
-        .section {
-            margin-bottom: 2rem;
-        }
-
-        .project-card {
-            background: var(--card-background);
-            border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-
-        a {
-            color: var(--link-color);
-            text-decoration: none;
-        }
-
-        a:hover {
             text-decoration: underline;
         }
-
+        
+        /* About section */
+        .about-content {
+            max-width: 700px;
+        }
+        
+        /* Footer */
         footer {
             background-color: var(--primary-color);
-            color: var(--text-color);
+            padding: 2rem 0;
             text-align: center;
-            padding: 1rem;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .footer-email {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-email:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                gap: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .cards-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+            
+            .nav-container {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Jacob Triplett</h1>
-        <p>Finance PhD Student</p>
-        <p>The University of North Carolina</p>
-        <p>Kenan-Flagler Business School</p>
+        <div class="page-wrapper">
+            <div class="header-content">
+                <h1>Jacob Triplett</h1>
+                <p class="header-subtitle">Finance PhD Student</p>
+                <p class="header-subtitle">The University of North Carolina</p>
+                <p class="header-subtitle">Kenan-Flagler Business School</p>
+            </div>
+        </div>
     </header>
 
     <nav>
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#software">Code</a>
-        <a href="#cv">CV</a>
+        <div class="page-wrapper">
+            <div class="nav-container">
+                <a href="#about">About</a>
+                <a href="#research">Research</a>
+                <a href="#software">Code</a>
+                <a href="#cv">CV</a>
+            </div>
+        </div>
     </nav>
 
-    <div class="container">
-        <section id="about" class="section">
-            <h2>About Me</h2>
-            <p>My background is in empirical corporate finance and econometrics.</p>
-        </section>
+    <main>
+        <div class="page-wrapper">
+            <section id="about">
+                <h2>About Me</h2>
+                <div class="section-content about-content">
+                    <p>My background is in empirical corporate finance and econometrics.</p>
+                </div>
+            </section>
 
-        <section id="research" class="section">
-            <h2>Research</h2>
-            <!-- For research papers, I recommend this format: -->
-            <div class="project-card">
-                <p><em>This section will contain your working papers and publications in a format like:</em></p>
-                <p>"Title of Paper" with Author Names (Year)<br>
-                Status: [R&R at Journal Name/Working Paper/Published]<br>
-                [Link to Paper] [Link to Code]</p>
-            </div>
-        </section>
+            <section id="research">
+                <h2>Research</h2>
+                <div class="section-content">
+                    <div class="card">
+                        <p><em>This section will contain your working papers and publications in a format like:</em></p>
+                        <p>"Title of Paper" with Author Names (Year)<br>
+                        Status: [R&R at Journal Name/Working Paper/Published]<br>
+                        [Link to Paper] [Link to Code]</p>
+                    </div>
+                </div>
+            </section>
 
-        <section id="software" class="section">
-            <h2>Code</h2>
-            <div class="project-card">
-                <h3>stackdid: Stacked difference-in-differences regression</h3>
-                <p>Remarkably straightforward stacked difference-in-differences regressions. An assortment of options enable precise model specification and robustness analysis.</p>
-                <a href="https://github.com/jacobwtriplett/stackdid">GitHub Repository</a>
-            </div>
-            <div class="project-card">
-                <h3>gintreg: Generalized interval regression</h3>
-                <p>Estimate linear models with possibly nonnormal disturbances and with outcomes measured as point, interval, left-censored, or right-censored data. Specify any of seventeen distributions in the Skewed Generalized t (SGT) family and Generalized Beta of the Second Kind (GB2) family. Model heterogeneity in auxillary parameters affecting variance, skewness and shape.</p>
-                <a href="https://github.com/jacobwtriplett/gintreg">GitHub Repository</a>
-            </div>
-            <div class="project-card">
-                <h3>goprobit2: Generalized ordered probit regression</h3>
-                <p>Fit ordered response regression models of ordinal outcomes. goprobit2 extends oprobit by offering a variety of link functions based on the Skewed Generalized t (SGT) family of statistical distributions.</p>
-                <a href="https://github.com/jacobwtriplett/goprobit2">GitHub Repository</a>
-            </div>
-        </section>
+            <section id="software">
+                <h2>Code</h2>
+                <div class="section-content">
+                    <div class="cards-grid">
+                        <div class="card">
+                            <h3>stackdid: Stacked difference-in-differences regression</h3>
+                            <p>Remarkably straightforward stacked difference-in-differences regressions. An assortment of options enable precise model specification and robustness analysis.</p>
+                            <a href="https://github.com/jacobwtriplett/stackdid" class="card-link">GitHub Repository →</a>
+                        </div>
+                        <div class="card">
+                            <h3>gintreg: Generalized interval regression</h3>
+                            <p>Estimate linear models with possibly nonnormal disturbances and with outcomes measured as point, interval, left-censored, or right-censored data. Specify any of seventeen distributions in the Skewed Generalized t (SGT) family and Generalized Beta of the Second Kind (GB2) family.</p>
+                            <a href="https://github.com/jacobwtriplett/gintreg" class="card-link">GitHub Repository →</a>
+                        </div>
+                        <div class="card">
+                            <h3>goprobit2: Generalized ordered probit regression</h3>
+                            <p>Fit ordered response regression models of ordinal outcomes. goprobit2 extends oprobit by offering a variety of link functions based on the Skewed Generalized t (SGT) family of statistical distributions.</p>
+                            <a href="https://github.com/jacobwtriplett/goprobit2" class="card-link">GitHub Repository →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <section id="cv" class="section">
-            <h2>Curriculum Vitae</h2>
-            <div class="project-card">
-                <p>For your CV, you have several options:</p>
-                <ul>
-                    <li>Host a PDF directly in your GitHub repository and link to it</li>
-                    <li>Link to a Google Doc set to "Anyone with the link can view"</li>
-                    <li>Use services like Overleaf's PDF sharing</li>
-                </ul>
-                <p>Example link: <a href="#">View CV (PDF)</a></p>
-            </div>
-        </section>
-    </div>
+            <section id="cv">
+                <h2>Curriculum Vitae</h2>
+                <div class="section-content">
+                    <div class="card">
+                        <p>For your CV, you have several options:</p>
+                        <ul>
+                            <li>Host a PDF directly in your GitHub repository and link to it</li>
+                            <li>Link to a Google Doc set to "Anyone with the link can view"</li>
+                            <li>Use services like Overleaf's PDF sharing</li>
+                        </ul>
+                        <a href="#" class="card-link">View CV (PDF) →</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
 
     <footer>
-        <p>href="mailto:jacob_triplet@kenan-flagler.unc.edu">jacob_triplett@kenan-flagler.unc.edu</p>
+        <div class="page-wrapper">
+            <div class="footer-content">
+                <a href="mailto:jacob_triplet@kenan-flagler.unc.edu" class="footer-email">jacob_triplet@kenan-flagler.unc.edu</a>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
