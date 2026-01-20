@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Source Serif 4", 'Source Sans Pro', Helvetica, serif;
+    font-weight: 400;
+    font-size: 18px;
+    background-color: white;
+    color:#444444;
+}
+
+img {
+    width: 190px;
+    text-align: auto;
+    height: auto;
+    margin-bottom: 1em;
+    opacity: 1;
+    position: relative;
+    z-index: 2;
+}
+
+img:first-of-type {
+    border-radius: 48%;
+}
+
+.unc-logo {
+    border-radius: 0 !important;
+    width: 180px;
+    overflow: hidden;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 30px;
+}
+
+a {
+    color: #007FAE;
+    font-weight: 400;
+}
+
+a:visited {
+    color: #007FAE;
+    font-weight: bold;
+}
+
+#content {
+    padding-left: 350px;
+    padding-right: 20px;
+    margin-bottom: 50px;
+    max-width: 1080px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: 'Source Sans Pro', sans-serif;
+    margin-top: 40px;
+    font-size: 2.5em;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 1.6em;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+    color: #13294B;
+}
+
+.nav-ul {
+    list-style-type: none;
+    margin: 0;
+    margin-top: 3em;
+    padding: 0;
+    padding-left: 0;
+    padding-bottom: 1em;
+    -webkit-padding-start: 0;
+    -webkit-margin-start: 0;
+}
+
+.work-list {
+    list-style-position: outside none;
+    margin-bottom: 2em;
+    margin-left: 2em;
+}
+
+.work-item {
+    display: block;
+    margin-left: 0;
+    margin-bottom: 20px;
+    padding-left: 1em;
+    text-indent: -1em;
+    list-style: none;
+}
+
+.about-paragraph{
+    line-height: 1.4em;
+    margin-bottom:0.3em;
+}
+
+.abstract {
+    margin-top: -0.8em;
+    margin-left: 2em;
+    font-size: 0.8em;
+    margin-bottom: 1em;
+}
+
+.about-text {
+    margin-left: 2em;
+}
+
+.nav-item {
+    display: inline;
+    list-style: none;
+    margin: 0;
+    padding-right: 10px;
+    padding-bottom: 5px;
+}
+
+nav {
+    width: 100%;
+}
+
+h3 {
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 1em;
+}
+
+#contact {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 320px;
+    height: 100vh;
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    box-sizing: border-box;
+    background-image: url('UNC_Argyle_Long_Navy_CarolinaBlue_rgb.svg');
+    background-size: 350px;
+    background-position: center;
+    background-repeat: repeat;
+    background-attachment: scroll;
+}
+
+#contact::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 320px;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.92);
+    pointer-events: none;
+    z-index: 0;
+    box-sizing: border-box;
+}
+
+#contact-text {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    word-wrap: break-word;
+    justify-content: space-between;
+    height: 100%;
+}
+
+#contact img:first-of-type {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.headline-name {
+    font-size: 32px;
+    font-weight: 700;
+    color: #13294B;
+}
+
+
+@media all and (max-width: 800px) {
+    #content {
+        padding-left: 270px;
+        padding-right: 20px;
+    }
+
+    #contact {
+        width: 220px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    #contact::before {
+        width: 220px;
+    }
+}
+

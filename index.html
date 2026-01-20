@@ -1,354 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jacob Triplett</title>
-    <style>
-        :root {
-            --background-color: #F5F1EA;
-            --text-color: #141413;
-            --primary-color: #E1DDD6;
-            --secondary-color: #EBE7E0;
-            --accent-color: #6B4423;
-            --card-background: #FFFFFF;
-            --hover-color: #8B7355;
-            --header-height: 70px;
-            --footer-height: 60px;
-        }
-
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&display=swap');
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-color);
-        }
-        
-        .page-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        /* Header */
-        header {
-            background-color: var(--background-color);
-            padding: 3rem 0 1rem;
-            position: relative;
-        }
-        
-        .header-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        
-        h1 {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.5rem;
-        }
-        
-        .header-subtitle {
-            font-size: 1.25rem;
-            font-weight: 400;
-            margin-bottom: 0.25rem;
-            opacity: 0.9;
-        }
-        
-        /* Navigation */
-        nav {
-            background-color: var(--background-color);
-            padding: 1.5rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid var(--primary-color);
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-        
-        nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-        
-        nav a:hover {
-            color: var(--accent-color);
-        }
-        
-        nav a::after {
-            content: "";
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent-color);
-            transition: width 0.3s ease;
-        }
-        
-        nav a:hover::after {
-            width: 100%;
-        }
-        
-        /* Main content */
-        main {
-            padding: 3rem 0;
-        }
-        
-        section {
-            margin-bottom: 4rem;
-        }
-        
-        h2 {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 1.75rem;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
-        }
-        
-        h2::after {
-            content: "";
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background-color: var(--accent-color);
-        }
-        
-        .section-content {
-            margin-top: 2rem;
-        }
-        
-        /* Cards */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .card {
-            background-color: var(--card-background);
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-        }
-        
-        .card h3 {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-            margin-bottom: 0.75rem;
-            color: var(--text-color);
-        }
-        
-        .card p {
-            margin-bottom: 1.25rem;
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
-        
-        .card-link {
-            display: inline-block;
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-        
-        .card-link:hover {
-            color: var(--hover-color);
-            text-decoration: underline;
-        }
-        
-        /* About section */
-        .about-content {
-            max-width: 700px;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--primary-color);
-            padding: 2rem 0;
-            text-align: center;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .footer-email {
-            color: var(--text-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-email:hover {
-            color: var(--accent-color);
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-container {
-                gap: 1.5rem;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .cards-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-        }
-        
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.75rem;
-            }
-            
-            .nav-container {
-                gap: 1rem;
-                flex-wrap: wrap;
-            }
-            
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="page-wrapper">
-            <div class="header-content">
-                <h1>Jacob Triplett</h1>
-                <p class="header-subtitle">Finance PhD Student</p>
-                <p class="header-subtitle">The University of North Carolina</p>
-                <p class="header-subtitle">Kenan-Flagler Business School</p>
-            </div>
-        </div>
-    </header>
-
-    <nav>
-        <div class="page-wrapper">
-            <div class="nav-container">
-                <a href="#about">About</a>
-                <a href="#research">Research</a>
-                <a href="#software">Software</a>
-                <a href="#cv">CV</a>
-            </div>
-        </div>
-    </nav>
-
-    <main>
-        <div class="page-wrapper">
-            <section id="about">
-                <h2>About Me</h2>
-                <div class="section-content about-content">
-                    <p>My background is in empirical corporate finance and econometrics.</p>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="main.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet"> 
+        <title>Jacob Triplett</title>
+        <meta name="google-site-verification" content="" />
+        <meta name="description" content="placeholder">
+	<base target="_blank">
+    </head>
+    <body>
+        <div id="contact">
+            <div id="contact-text">
+                <div>
+                    <img src="main.jpeg" alt="Jacob Triplett profile picture"><br>
+                    <span class="headline-name">Jacob Triplett</span><br>
+                    Finance PhD Student<br>
+                    <a href="mailto:jacob_triplett@kenan-flagler.unc.edu"><em>email</em></a><br>
                 </div>
-            </section>
+				<img class="unc-logo" src="University_Signature_CarolinaBlue_Navy_rgb_h.svg" alt="UNC Logo">
+            </div>
+        </div>
+        <div id="content">
+            <div id="about">
+                <h2>About</h2>
+                <div class="about-text">
+                    <p class="about-paragraph">I am a Finance PhD student at the <em>University of North Carolina at Chapel Hill</em> and sponsored by the <em>Institute for Private Capital</em>.</p>    
+                </div>
+            </div>
 
-            <section id="research">
+            <div id="research">
                 <h2>Research</h2>
-                <div class="section-content">
-                    <div class="card">
-                        <p>McDonald, J. B., & Triplett, J. (2025). gintreg: Generalized interval regression. The Stata Journal, 25(1), 51-76. https://doi.org/10.1177/1536867X251322961</p>
-                    </div>
-                    <div class="card">
-                        <p><em>This section will contain your working papers and publications in a format like:</em></p>
-                        <p>"Title of Paper" with Author Names (Year)<br>
-                        Status: [R&R at Journal Name/Working Paper/Published]<br>
-                        [Link to Paper] [Link to Code]</p>
-                    </div>
-                </div>
-            </section>
+                <h3>Working Papers/Works in Progress</h3>
+                <ul class="work-list">
+                    <li class="work-item">"Pollution & Productivity", with Aymeric Bellon, Yasser Boualam and David Sraer.</li>
+                    <li class="work-item">"Private Equity and Market Structure", with Vrinda Mittal.</li>
+                    <li class="work-item">"Private Equity Founders", with Matthew Denes, John Hackney and Ran Duchin.</li>
+                </ul>
+            <div id="code">
+                <h2>Code</h2>
+                <ul class="work-list">
+                    <li class="work-item"><a href="https://www.github.com/jacobwtriplett/stackdid">stackdid</a><br>
+                        <u>Stacked difference-in-differences</u>, made remarkably straightforward. stackdid restructures panel data into a stack of cohorts centered on treatment events, integrates seamlessly with existing high-dimensional fixed effects estimators, and provides an assortment of options for precise model specification and robustness analysis.
+                    </li>
+                </ul>
+		<ul class="work-list">
+                    <li class="work-item"><a href="https://www.github.com/jacobwtriplett/gintreg">gintreg</a><br>
+                        <u>Generalized interval regression</u> is an advanced program for flexible regression analysis. gintreg fits a linear model with a possibly nonnormal disturbance and with an outcome measured as point data, interval data, left-censored data or right-censored data. Model heteroskedasticity in any auxiliary parameter. Seventeen distributions from the Skewed Generalized t family and Generalized Beta of the Second Kind (GB2) family are supported. A suite of postestimation features are supplied, notably including <em>gintregplot</em>.<br><br>
+McDonald, J. B., & Triplett, J. (2025). <a href="https://doi.org/10.1177/1536867X251322961">gintreg: Generalized interval regression.</a> The Stata Journal, 25(1), 51-76.
+		</li>
+                </ul>
+		<ul class="work-list">
+                    <li class="work-item"><a href="https://www.github.com/jacobwtriplett/goprobit2">goprobit2</a><br>
+                        <u>Generalized probit regression</u> fits ordered response regression models. It offers a variety of link functions based on the Skewed Generalized t (SGT) family of statistical distributions.
+                    </li>
+                </ul>
 
-            <section id="software">
-                <h2>Software</h2>
-                <div class="section-content">
-                    <div class="cards-grid">
-                        <div class="card">
-                            <h3>stackdid: Stacked difference-in-differences regression</h3>
-                            <p>Remarkably straightforward stacked difference-in-differences regressions. An assortment of options enable precise model specification and robustness analysis.</p>
-                            <a href="https://papers.ssrn.com/abstract=5421535" class="card-link">Paper, </a>
-                            <a href="https://github.com/jacobwtriplett/stackdid" class="card-link">GitHub Repository</a>
-                        </div>
-                        <div class="card">
-                            <h3>gintreg: Generalized interval regression</h3>
-                            <p>Estimate linear models with possibly nonnormal disturbances and with outcomes measured as point, interval, left-censored, or right-censored data. Specify any of seventeen distributions in the Skewed Generalized t (SGT) family and Generalized Beta of the Second Kind (GB2) family.</p>
-                            <a href="https://doi.org/10.1177/1536867X251322961" class="card-link">Paper, </a>
-                            <a href="https://github.com/jacobwtriplett/gintreg" class="card-link">GitHub Repository</a>
-                        </div>
-                        <div class="card">
-                            <h3>goprobit2: Generalized ordered probit regression</h3>
-                            <p>Fit ordered response regression models of ordinal outcomes. goprobit2 extends oprobit by offering a variety of link functions based on the Skewed Generalized t (SGT) family of statistical distributions.</p>
-                            <a href="https://github.com/jacobwtriplett/goprobit2" class="card-link">GitHub Repository</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="cv">
-                <h2>Curriculum Vitae</h2>
-                <div class="section-content">
-                    <div class="card">
-                        <p>For your CV, you have several options:</p>
-                        <ul>
-                            <li>Host a PDF directly in your GitHub repository and link to it</li>
-                            <li>Link to a Google Doc set to "Anyone with the link can view"</li>
-                            <li>Use services like Overleaf's PDF sharing</li>
-                        </ul>
-                        <a href="#" class="card-link">View CV (PDF) →</a>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <footer>
-        <div class="page-wrapper">
-            <div class="footer-content">
-                <a href="mailto:jacob_triplet@kenan-flagler.unc.edu" class="footer-email">jacob_triplet@kenan-flagler.unc.edu</a>
+            </div>
+            </div>
+            <div id="teaching">
+                <h2>Teaching</h2>
+                <ul class="work-list">
+                    <li class="work-item">Teaching assistant for "Private Markets Investing", Prof. Greg Brown. Fall 2025.</li>
+                    <li class="work-item">Teaching assistant for "Intro to Statistics for Economists", Prof. Joseph McMurray. Fall 2021.</li>
+                </ul>
             </div>
         </div>
-    </footer>
-</body>
+    </body>
 </html>
